@@ -16,7 +16,7 @@ def send_message_and_get_response(request):
     client = OpenAI(
         api_key=api_key
     )
-    print(message)
+
     chat = client.chat.completions.create(
         messages=[
             {
@@ -28,5 +28,5 @@ def send_message_and_get_response(request):
     )
 
     answer = chat.choices[0].message.content
-    print(answer)
+
     return JsonResponse({'message': message, 'response': answer})
